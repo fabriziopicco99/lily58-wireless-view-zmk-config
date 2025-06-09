@@ -1,0 +1,19 @@
+/ {
+    rotary_encoder_1: rotary_encoder_1 {
+        compatible = "gpio-rotary-encoder";
+        label = "Rotary Encoder Right";
+        a-gpios = <&gpio0 4 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; // Cambiar si usás otro pin
+        b-gpios = <&gpio0 5 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+        encoding = "gray";
+        steps = <1>;
+    };
+};
+
+&behaviors {
+    rot_kp_r: rot_kp_r {
+        compatible = "zmk,behavior-rotary-encoder";
+        label = "Brightness Encoder";
+        #binding-cells = <2>;
+        sensor = <&rotary_encoder_1>;
+    };
+};
