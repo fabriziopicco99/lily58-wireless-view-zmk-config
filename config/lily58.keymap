@@ -13,17 +13,16 @@
 / {
 
     behaviors {
-       rot_kp: rot_kp {
-        compatible = "zmk,behavior-rotary-encoder";
-        label = "Volume Knob";
-        #binding-cells = <2>;
-    };
-
-    rot_kp_r: rot_kp_r {
-        compatible = "zmk,behavior-rotary-encoder";
-        label = "Brightness Knob";
-     
-    };
+        rot_kp: sensor_rotate_kp {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+        }; 
+        rot_kp_r: sensor_rotate_kp {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+        };
     };
 
     keymap {
@@ -45,8 +44,7 @@
                         &kp LALT &kp LGUI &mo 1  &kp SPACE  &kp RET  &mo 2  &kp BSPC &kp RGUI
             >;
 
-            sensor-bindings =<&rot_kp C_VOL_UP C_VOL_DN>,
-                  <&rot_kp_r C_BRI_UP C_BRI_DN>;
+            sensor-bindings = <&rot_kp C_VOL_UP C_VOL_DN>, <&rot_kp_r C_BRI_UP C_BRI_DN>;
         };
 
         lower_layer {
