@@ -2,8 +2,8 @@
     rotary_encoder_0: rotary_encoder_0 {
         compatible = "gpio-rotary-encoder";
         label = "Rotary Encoder Left";
-        a-gpios = <&gpio0 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; // Cambiar si usás otro pin
-        b-gpios = <&gpio0 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+        a-gpios = <&gpio0 10 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; // P0.10
+        b-gpios = <&gpio0 9 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;  // P0.09
         encoding = "gray";
         steps = <1>;
     };
