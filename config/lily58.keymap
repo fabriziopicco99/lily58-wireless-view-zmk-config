@@ -11,6 +11,11 @@
 #include <dt-bindings/zmk/rgb.h>
 
 / {
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&left_encoder &right_encoder>;
+        triggers-per-rotation = <20>;
+    };
 
     behaviors {
         rot_kp: sensor_rotate_kp {
@@ -18,13 +23,6 @@
             #sensor-binding-cells = <2>;
             bindings = <&kp>, <&kp>;
             sensor = <&rotary_encoder_0>;
-        }; 
-        rot_kp_r: sensor_rotate_kp {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            sensor = <&rotary_encoder_1>;
-            bindings = <&kp>, <&kp>;
-            
         };
     };
 
