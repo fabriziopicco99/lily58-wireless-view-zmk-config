@@ -9,7 +9,6 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/rgb.h>
-#include <dt-bindings/zmk/backlight.h>
 
 / {
 
@@ -20,11 +19,6 @@
             bindings = <&kp>, <&kp>;
         };
 
-        rot_bl: sensor_rotate_bl {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&bl>, <&bl>;
-        };
     };
 
     keymap {
@@ -65,7 +59,7 @@
                                               &trans            &trans       &trans    &trans   &trans    &trans    &trans    &trans
             >;
 
-            sensor-bindings = <&rot_bl BL_INC BL_DEC &rot_bl BL_CYCLE BL_CYCLE>;
+            sensor-bindings = <&rot_kp C_BRI_UP C_BRI_DN &rot_kp C_BRI_UP C_BRI_DN>;
         };
 
         raise_layer {
