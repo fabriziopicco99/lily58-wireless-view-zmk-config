@@ -27,6 +27,12 @@
             bindings = <&bl>, <&bl>;
             sensor = <&rotary_encoder_0>;
         };
+
+        rot_bl: sensor_rotate_bl {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&bl>, <&bl>;
+        };
     };
 
     keymap {
@@ -67,7 +73,7 @@
                                               &trans            &trans       &trans    &trans   &trans    &trans    &trans    &trans
             >;
 
-            sensor-bindings = <&rot_bl BL_INC BL_DEC>, <&rot_bl BL_CYCLE BL_CYCLE>;
+            sensor-bindings = <&rot_bl BL_INC BL_DEC &rot_bl BL_CYCLE BL_CYCLE>;
         };
 
         raise_layer {
@@ -86,7 +92,7 @@
                         &trans  &trans  &trans    &trans   &trans    &trans      &trans    &trans
             >;
 
-            sensor-bindings = <&rot_kp C_VOL_UP C_VOL_DN>, <&rot_kp PG_UP PG_DN>;
+            sensor-bindings = <&rot_kp C_VOL_UP C_VOL_DN &rot_kp PG_UP PG_DN>;
         };
 
         extra_1 {
