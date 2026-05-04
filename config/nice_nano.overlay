@@ -64,13 +64,13 @@
     };
 };
 
-/ {
-    nice_view_spi: spi {
-        parent = <&spi1>;
-        status = "okay";
-        cs-gpios = <&pro_micro 1 GPIO_ACTIVE_LOW>;
-    };
+&spi1 {
+    cs-gpios = <&pro_micro 1 GPIO_ACTIVE_LOW>;
+};
 
+nice_view_spi: &spi1 {};
+
+/ {
     chosen {
         zmk,underglow = &led_strip;
     };
