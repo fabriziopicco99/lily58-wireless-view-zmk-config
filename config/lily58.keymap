@@ -13,10 +13,10 @@
 / {
 
     behaviors {
-        rot_rgb: sensor_rotate_rgb {
+        rot_side: sensor_rotate_side {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&rgb_ug RGB_BRD>, <&rgb_ug RGB_BRI>;
+            bindings = <&kp C_BRI_DN>, <&kp C_BRI_UP>;
         };
 
     };
@@ -40,7 +40,7 @@
                         &kp LALT &kp LGUI &mo 1  &kp SPACE  &kp RET  &mo 2  &kp BSPC &kp RGUI
             >;
 
-            sensor-bindings = <&rot_rgb>;
+            sensor-bindings = <&rot_side>;
         };
 
         lower_layer {
@@ -59,7 +59,7 @@
 &rgb_ug RGB_TOG &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &trans       &trans    &trans   &trans    &trans    &trans    &trans          &trans    &trans    &trans
             >;
 
-            sensor-bindings = <&rot_rgb>;
+            sensor-bindings = <&rot_side>;
         };
 
         raise_layer {
@@ -78,7 +78,7 @@
                         &trans  &trans  &trans    &trans   &trans    &trans      &trans    &trans
             >;
 
-            sensor-bindings = <&rot_rgb>;
+            sensor-bindings = <&rot_side>;
         };
 
         extra_1 {

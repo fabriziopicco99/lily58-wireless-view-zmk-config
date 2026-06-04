@@ -1,0 +1,5 @@
+#include <dt-bindings/zmk/keys.h>
+
+&rot_side {
+    bindings = <&kp C_BRI_DN>, <&kp C_BRI_UP>;
+};
